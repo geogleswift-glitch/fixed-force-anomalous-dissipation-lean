@@ -1,0 +1,11 @@
+.lake/
+tmpbuild/
+*.olean
+*.ilean
+*.ir
+*.c
+*.server
+*.private
+*.trace
+*.log
+*.tex
