@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+project:
+  name: "Fixed-force anomalous dissipation"
+  description: >-
+    An unconditional Lean formalization of the authors' fixed-force
+    anomalous-dissipation construction on the three-dimensional torus,
+    including all-exponent regularity for the same velocity and pressure.
+  authors: ["Tao Tao", "Baishu Zeng", "Haiqi Zhang"]
+  responsible_maintainers: ["Haiqi Zhang"]
+  license: "Apache-2.0"
+classification:
+  arxiv: ["math.AP", "math.LO"]
+  msc2020: ["35Q30", "35K15", "03B35"]
+sources:
+  - title: "Anomalous Dissipation for the Forced 3D Navier–Stokes Equations"
+    authors: ["Elia Bruè", "Camillo De Lellis"]
+    id: "doi:10.1007/s00220-022-04626-0"
+    type: "paper"
+    location: "https://doi.org/10.1007/s00220-022-04626-0"
+    relationship: "background"
+    note: "This paper poses Question 2.1; the authors listed above supplied the new proof."
+  - title: "Authors' simplified proof of the fixed-force construction"
+    authors: ["Tao Tao", "Baishu Zeng", "Haiqi Zhang"]
+    type: "original-proof"
+    relationship: "other"
+    note: "Private source manuscript; the original TeX is intentionally excluded."
+related_formalizations: []
+status:
+  scope: >-
+    The principal theorem proves the complete unconditional construction,
+    including every original parabolic exponent for the same solution
+    witnesses. Both the concrete phase-force two-dimensional Navier–Stokes
+    existence theorem and the scalar analytic interface are proved within
+    this project. Proof counts refer to RequestProject and Solution. The
+    separate Mathlib-only Challenge contains the single theorem placeholder
+    required by the Comparator protocol and is not imported by Solution.
+    Full official execution and public registry submission remain release
+    tasks; hosted verification results are recorded by GitHub Actions.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "AnomDiss.main_theorem_unconditional"
+      file: "RequestProject/MainUnconditional.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+    - declaration: "AnomDiss.exists_phase_classical_all_beta"
+      file: "RequestProject/NSPhaseGalerkinClassical.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+    - declaration: "AnomDiss.externalScalar_proved"
+      file: "RequestProject/ScalarGlobalSpatialSchauder.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      literature_dependencies: []
+automation:
+  methods:
+    - method: "agent"
+      models: ["Aristotle", "Codex"]
+      framework: "Lean 4 and Mathlib"
+      tool_setup: >-
+        AI-assisted theorem proving and proof repair, local Lake builds,
+        exact statement checks, and transitive axiom and statement audits
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local Windows verification; AI service hardware not tracked"
+      prompting_notes: "Preserve the authors' original hypotheses, conclusion, and all-exponent same witnesses."
+  spend_usd: "not tracked"
+  notes: >-
+    The human authors supplied the non-formal proof with ChatGPT assistance.
+    Aristotle and Codex produced and repaired the formalization.
+    No independent human review of the formalization is claimed.
+fidelity:
+  divergences: >-
+    Periodic lifts and an explicit Hölder norm encode the source torus spaces.
+    Continuity of every Hölder-valued time derivative is proved in
+    HolderTimeContinuity. The force predicate also requires smooth spatial
+    slices. The source pressure time exponent β/2 is preserved; (1+β)/2 is
+    used for velocity first derivatives. The initial unit L² norm is written
+    as its equivalent squared identity. IsClassicalNS stores one admissible
+    exponent, and the principal theorem additionally proves every exponent
+    for the same velocity and pressure. The original conditional Aristotle
+    declaration is retained as an intermediate result; its analytic premises
+    are not parameters of the principal theorem.
+review:
+  status: "kernel verified locally on pinned Lean 4.35.0-rc4"
+  reviewers: ["independent Codex agents (AI review)"]
+  notes: >-
+    The final statement and proof chain were compared with the source
+    manuscript. Whole-project compilation, exact unconditional statement
+    checking, and transitive axiom audits passed on the pinned Lean
+    v4.35.0-rc4 toolchain. Only the three standard axioms occur in the
+    audited proof chain. Hosted build and protected Comparator results
+    are recorded in GitHub Actions; full official execution and registry
+    submission are separate release steps.
