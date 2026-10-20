@@ -1,0 +1,95 @@
+module
+
+public import RequestProject.Main
+public import RequestProject.MainRegularity
+public import RequestProject.ExistenceInterfaces
+public import RequestProject.HolderTimeContinuity
+public import RequestProject.NSPhaseGalerkinRHSBridge
+public import RequestProject.NSPhaseGalerkinMild
+public import RequestProject.ScalarGlobalC2Bridge
+public import RequestProject.ScalarFluxDerivativeRegularity
+public import RequestProject.ScalarMildTimeEquation
+public import RequestProject.ScalarSchauderSpatial
+public import RequestProject.ScalarGlobalTimeEquation
+public import RequestProject.ScalarHessianSchauder
+public import RequestProject.ScalarHeatTimeSchauder
+public import RequestProject.HeatDuhamelTimeHolder
+public import RequestProject.NSPhaseGalerkinSobolevProduct
+public import RequestProject.ParabolicHolderOperations
+public import RequestProject.MainWithScalarExistence
+public import RequestProject.NSPhaseGalerkinQuadraticConvolution
+public import RequestProject.NSPhaseGalerkinSobolevGain
+public import RequestProject.FourierSeriesRegularity
+public import RequestProject.PhaseForceHeatRegularity
+public import RequestProject.NSPhaseGalerkinH2
+public import RequestProject.NSPhaseGalerkinHigherHeat
+public import RequestProject.NSPhaseGalerkinVelocitySpatial
+public import RequestProject.NSPhaseGalerkinPressureReal
+public import RequestProject.NSPhaseGalerkinTimeBelowOne
+public import RequestProject.FourierContinuousUniqueness
+public import RequestProject.MainUnconditional
+public import Solution
+
+/-!
+# Declaration surface checks
+
+This file checks that the displayed declaration interfaces elaborate. The
+actual transitive axiom gate is `verification/Check-Axioms.ps1`, which loads
+proof bodies in a generated non-module probe and rejects forbidden axioms.
+-/
+
+set_option pp.universes false
+
+/- `#print axioms` is intentionally run from an ephemeral non-module probe,
+because Lean rejects that command in a file beginning with `module`. -/
+#check AnomDiss.ExternalNS2D
+#check AnomDiss.ExternalScalar
+#check AnomDiss.main_theorem
+#check AnomDiss.main_theorem_all_beta
+#check AnomDiss.main_theorem_from_existence
+#check AnomDiss.IsSmoothHolderValued.exists_continuous_derivatives
+#check AnomDiss.phaseL2FourierRHSCurve_galerkin_eq
+#check AnomDiss.exists_phaseGalerkin_l2_fourier_heat_duhamel
+#check AnomDiss.contDiff_two_duhamelComponent_of_flux_derivative_holder
+#check AnomDiss.scalar_mild_fixedPoint_contDiff_two_of_flux_derivative_holder
+#check AnomDiss.exists_real_periodic_global_scalar_mild_C2
+#check AnomDiss.scalar_mild_fixedPoint_hasDerivWithinAt_of_flux_derivative_holder
+#check AnomDiss.pd2_heatDuhamel_spatial_schauder
+#check AnomDiss.scalar_mild_fixedPoint_fderiv_spatial_holder
+#check AnomDiss.scalar_mild_fixedPoint_flux_derivative_regular
+#check AnomDiss.exists_real_periodic_global_scalar_bounded_derivatives_equation
+#check AnomDiss.scalar_mild_fixedPoint_hessian_spatial_holder
+#check AnomDiss.pd2_heatOp_timeHolder
+#check AnomDiss.pd_heatOp_timeHolder
+#check AnomDiss.timeHolder_pd2_heatDuhamel_holder
+#check AnomDiss.timeHolder_pd_heatDuhamel_holder
+#check AnomDiss.phaseGalerkin_l2_limit_heat_weighted_gradient_energy
+#check AnomDiss.phaseGalerkin_l2_limit_convolution_coordinate_bound
+#check AnomDiss.scalarClassicalExistence_proved
+#check AnomDiss.externalScalar_proved
+#check AnomDiss.main_theorem_all_beta_with_proved_scalar
+#check AnomDiss.main_theorem_zero_data_with_proved_scalar
+#check AnomDiss.phaseGalerkin_l2_limit_quadraticFourierMoment_eq_tsum
+#check AnomDiss.phaseGalerkin_l2_limit_nonlinearFourierFlux_eq_tsum
+#check AnomDiss.phaseGalerkin_l2_limit_quadratic_fourier_fractional_energy
+#check AnomDiss.phaseGalerkin_l2_limit_source_negative_energy
+#check AnomDiss.exists_phaseGalerkin_l2_limit_uniform_sobolev_below_two
+#check AnomDiss.fourier_heatDuhamel_uniform_sobolev_gain
+#check AnomDiss.contDiff_one_and_pd_holder_complexFourierSeries
+#check AnomDiss.gForce_parHolder
+#check AnomDiss.heatDuhamel_isParabolicC12
+#check AnomDiss.phaseForceHeatComponent_isParabolicC12
+#check AnomDiss.exists_phaseGalerkin_l2_limit_uniform_h2_energy
+#check AnomDiss.phaseGalerkin_l2_limit_uniform_nonlinear_heat_energy_below_three
+#check AnomDiss.exists_phaseGalerkin_l2_limit_continuous_velocity
+#check AnomDiss.phaseGalerkin_l2_limit_spatial_C1_holder
+#check AnomDiss.phaseGalerkin_l2_limit_continuousVelocity_solenoidal
+#check AnomDiss.phaseGalerkin_l2_limit_uniform_sobolev_below_three
+#check AnomDiss.phaseGalerkin_l2_limit_uniform_pressure_sobolev_energy
+#check AnomDiss.phaseGalerkin_l2_limit_real_pressure_gradient_fourier
+#check AnomDiss.phaseGalerkin_l2_limit_uniform_first_moment_time_holder
+#check AnomDiss.continuous_periodic_eq_of_fc_eq
+#check @AnomDiss.exists_phase_classical_all_beta
+#check @AnomDiss.true_horizontal_existence_proved
+#check @AnomDiss.main_theorem_unconditional
+#check @AnomDiss.fixed_force_anomalous_dissipation
