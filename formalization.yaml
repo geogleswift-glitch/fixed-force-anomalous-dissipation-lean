@@ -35,8 +35,11 @@ status:
     this project. Proof counts refer to RequestProject and Solution. The
     separate Mathlib-only Challenge contains the single theorem placeholder
     required by the Comparator protocol and is not imported by Solution.
-    Full official execution and public registry submission remain release
-    tasks; hosted verification results are recorded by GitHub Actions.
+    The project is publicly registered in Palomar as
+    PALOMAR-2026-10-22-000013, version 1:
+    https://palomar-registry.org/entry?id=PALOMAR-2026-10-22-000013&version=1.
+    The versioned entry records the registered source and registry
+    verification details; GitHub Actions records repository checks.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Classical.choice", "Quot.sound"]
@@ -87,13 +90,16 @@ fidelity:
     declaration is retained as an intermediate result; its analytic premises
     are not parameters of the principal theorem.
 review:
-  status: "kernel verified locally on pinned Lean 4.35.0-rc4"
+  status: "kernel verified locally and in GitHub CI; publicly registered in Palomar, version 1"
   reviewers: ["independent Codex agents (AI review)"]
   notes: >-
     The final statement and proof chain were compared with the source
     manuscript. Whole-project compilation, exact unconditional statement
     checking, and transitive axiom audits passed on the pinned Lean
     v4.35.0-rc4 toolchain. Only the three standard axioms occur in the
-    audited proof chain. Hosted build and protected Comparator results
-    are recorded in GitHub Actions; full official execution and registry
-    submission are separate release steps.
+    audited proof chain. The initial repository proof snapshot passed
+    hosted build and protected Comparator checks with Lean, NanoDa and
+    con-ron. Public Palomar registration is recorded as
+    PALOMAR-2026-10-22-000013, version 1. Later documentation updates on
+    main do not change that versioned registry entry. No independent
+    human review is asserted.
