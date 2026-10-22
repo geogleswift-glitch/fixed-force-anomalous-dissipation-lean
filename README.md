@@ -4,6 +4,8 @@
 
 Responsible maintainer: Haiqi Zhang.
 
+Registered in the [Palomar Registry as **PALOMAR-2026-10-22-000013, version 1**](https://palomar-registry.org/entry?id=PALOMAR-2026-10-22-000013&version=1).
+
 [![Lean build and axiom audit](https://github.com/geogleswift-glitch/fixed-force-anomalous-dissipation-lean/actions/workflows/lean.yml/badge.svg)](https://github.com/geogleswift-glitch/fixed-force-anomalous-dissipation-lean/actions/workflows/lean.yml)
 [![Protected Comparator](https://github.com/geogleswift-glitch/fixed-force-anomalous-dissipation-lean/actions/workflows/comparator.yml/badge.svg)](https://github.com/geogleswift-glitch/fixed-force-anomalous-dissipation-lean/actions/workflows/comparator.yml)
 
@@ -46,11 +48,11 @@ The project uses periodic lifts on Euclidean space. The initial normalization `l
 
 The human authors completed the original non-formal proof with assistance from ChatGPT. Aristotle and Codex developed and repaired the Lean formalization from that proof. The original TeX manuscript is intentionally excluded.
 
-## Palomar preparation
+## Palomar registration
 
 `Challenge.lean`, `Solution.lean`, and `comparator.json` provide the submission interface. The Challenge contains the expected theorem placeholder; the Solution uses the closed proved theorem and does not import the Challenge. The protected Comparator workflow runs the pinned official source-preparation stage and a standalone sandboxed comparison with Lean, NanoDa, and con-ron. Its reports record the result for the checked commit.
 
-This private preparation repository has not been submitted to Palomar. Full official execution on a Linux host meeting Palomar's resource profile remains a separate step. The repository will remain private until the authors decide to make it public; registration requires public access to the final immutable commit. See [PALOMAR_READINESS.md](PALOMAR_READINESS.md) for those release requirements.
+This repository is public and registered in Palomar as **PALOMAR-2026-10-22-000013, version 1**. The [versioned registry entry](https://palomar-registry.org/entry?id=PALOMAR-2026-10-22-000013&version=1) is the reference for the registered source revision and registry verification record. Later documentation updates on `main` do not change that registry version. See [PALOMAR_READINESS.md](PALOMAR_READINESS.md) for the registration and repository verification history.
 
 ## License
 
