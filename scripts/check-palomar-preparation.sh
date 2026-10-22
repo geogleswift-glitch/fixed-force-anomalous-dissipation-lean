@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Run the pinned official intake checks on a fresh private checkout.
+# Run the pinned official intake checks on a fresh checkout.
 # This does not register a submission or run the full mechanical execution.
 : "${RUNNER_TEMP:?}"
 : "${GITHUB_REPOSITORY:?}"
@@ -73,6 +73,6 @@ if (report.get("status") != "pending" or report.get("stage") != "prepared"
         "status": report.get("status"), "stage": report.get("stage"),
         "errors": report.get("errors", []),
     }, ensure_ascii=False))
-print("Pinned official source preparation passed for the exact private commit.")
-print("Full official execution and registry registration have not been performed.")
+print("Pinned official source preparation passed for the exact requested commit.")
+print("This workflow runs source preparation only; consult the versioned Palomar entry for registry status.")
 PY
